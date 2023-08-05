@@ -6,7 +6,10 @@
       "ReplicatedStorage": {
         "$className": "ReplicatedStorage",
         "Packages": {
-          "$path": "default.project.json"
+          "$className": "Folder",
+          "Compulse": {
+            "$path": "default.project.json"
+          }
         }
       }
     }

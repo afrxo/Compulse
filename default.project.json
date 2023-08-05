@@ -1,9 +1,6 @@
 {
-	"name": "Packages",
+	"name": "compulse",
 	"tree": {
-		"$className": "Folder",
-		"Compulse": {
-			"$path": "lib"
-		}
+		"$path": "lib"
 	}
 }
