@@ -38,16 +38,18 @@ return create
 ```lua
 -- [imports omitted]
 
-local ButtonInstance = Button {
+local instance = Button {
     Text = "Click me!",
     Activated = function()
         print("Do something")
     end
 }
 
-ButtonInstance.Parent = Fusion.New "ScreenGui" {
-    Parent = Players.LocalPlayer.PlayerGui
+instance.Parent = Fusion.New "ScreenGui" {
+    Parent = Player.PlayerGui
 }
+
+task.delay(3, instance.Destroy, instance)
 ```
 
 ## Strictly Typed
