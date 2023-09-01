@@ -33,7 +33,7 @@ return function<props>(): (Component<props>, Factory<props>)
 	local function create(Props: props)
 		local fragment = setmetatable({
 			Props = Props,
-		}, component)
+		}, {__index = component})
 
 		tryMethod(component, "Init", fragment, Props)
 

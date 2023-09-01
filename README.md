@@ -5,7 +5,7 @@ enabling seamless creation of component-based classes with lifecycle. Simplify U
 ## Installation
 Add **Compulse** to your `wally.toml` dependency list:
 
-`Compulse = "afrxo/compulse@^1.1" `
+`Compulse = "afrxo/compulse@^1.2" `
 
 
 ## Example
