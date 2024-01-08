@@ -20,6 +20,7 @@ export type Component<props> = {
 type table = { [any]: any }
 
 local function tryMethod(object: table, name: string, ...: any): any
+	debug.profilebegin(`Compulse.{name}`)
 	if object[name] then
 		return object[name](...)
 	end
@@ -36,8 +37,10 @@ return function<props>(): (Component<props>, Factory<props>)
 		}, {__index = component})
 
 		tryMethod(component, "Init", fragment, Props)
+		debug.profileend()
 
 		local renderResult: Instance = tryMethod(component, "Render", fragment)
+		debug.profileend()
 
 		assert(
 			typeof(renderResult) == "Instance",
@@ -45,10 +48,12 @@ return function<props>(): (Component<props>, Factory<props>)
 		)
 
 		tryMethod(component, "DidRender", fragment)
+		debug.profileend()
 
 		local destroying
 		destroying = renderResult.Destroying:Connect(function()
 			tryMethod(component, "WillDestroy", fragment)
+			debug.profileend()
 
 			destroying:Disconnect()
 		end)
